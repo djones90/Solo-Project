@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Trip</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Hello {{ user.first_name }}! Edit your post</h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action='/{{ post.id }}/update' method='POST'>
+        {% csrf_token %}
+            <label for='title'>Title:</label>
+            <input type='text' id='title' name='title' class='form-control'>
+            <br>
+            <label for='description'>Description:</label>
+            <input type='text' id='description' name='description' class='form-control'>   
+            <br>
+            <button class='btn btn-primary'>Submit</button>
+            <a href="/success" method="POST">Cancel</a>
+    </form>    
+</body>
+</html>

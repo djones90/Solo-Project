@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class = "feed">
+
+    <div id = 'header'>
+        <h1>METAL ALTAR</h1>
+    </div>  
+
+    <a href="/success" method='POST'>Dashboard</a>
+    <a href="/logout" method='POST'>Logout</a>
+    
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.description }}</p>
+
+    <form action='/{{ post.id }}/comment' method='POST'>
+        {% csrf_token %}
+        <label for='comment'>Comment</label>
+        <input type='description' name='comment' class='form-control'>
+
+        <input type='submit' value='Submit'>
+
+    </form>
+
+</div>
+
+</body>
+</html>

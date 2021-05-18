@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal Altar Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id = 'header'>
+        <h1>METAL ALTAR</h1>
+    </div> 
+    <div id = "logregform">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>Log In</h2>
+
+    <form action='/login' method='POST'>
+        {% csrf_token %}
+        <label for='email'>Email</label>
+        <input type='text' name='email' class='form-control'>
+        <br>
+
+        <label for='password'>Password</label>
+        <input type='password' class='form-control' name='password'>
+        <br>
+        <button class='btn btn-primary'>Log In</button>
+
+    </form>
+
+
+    <h2>Register</h2>
+
+    <form action='/register' method='POST'>
+        {% csrf_token %}
+            <label for='first_name'>First Name</label>
+            <input type='text' id='first_name' name='first_name' class='form-control'>
+            <br>
+            <label for='last_name'>Last Name</label>
+            <input type='text' id='last_name' name='last_name' class='form-control'>   
+            <br>
+            <label for='email'>Email</label>
+            <input type='text' id='email' name='email' class='form-control'>   
+            <br>
+            <label for='password'>Password</label>
+            <input type='password' id='password' name='password' class='form-control'>
+            <br>
+            <label for='confirm_pw'>Confirm Password</label>
+            <input type='password' id='confirm_pw' name='confirm_pw' class='form-control'>
+            <br>
+            <button class='btn btn-primary'>Register</button>
+        
+    </form>    
+    </div>
+
+</body>
+</html>
