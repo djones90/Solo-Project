@@ -1,5 +1,5 @@
-# Solo-Project
-Metal Altar - a website for users to post their own articles, reviews, stories, etc
+# Metal-ALtar
+Metal Altar - a website for metal fans to post their own articles, reviews, stories, etc
 
 Made with Python, Django, HTML, CSS
 
