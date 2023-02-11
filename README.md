@@ -1,4 +1,4 @@
-# Metal-ALtar
+# Metal-Altar
 Metal Altar - a website for metal fans to post their own articles, reviews, stories, etc
 
 Made with Python, Django, HTML, CSS
